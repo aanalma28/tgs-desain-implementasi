@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .title-hotel {
+            margin-bottom: 20px; /* Jarak antara judul dan daftar hotel */
+        }
+        .hotel-list {
+            display: flex; /* Menggunakan flexbox untuk menampilkan card secara horizontal */
+            overflow: hidden; /* Menghilangkan scrollbar */
+            padding-bottom: 10px; /* Ruang di bawah card untuk scroll */
+            position: relative; /* Untuk posisi tombol navigasi */
+        }
+        .card {
+            min-width: 18rem; /* Minimum width untuk card */
+            margin-right: 15px; /* Ruang antar card */
+        }
+        .btn-nav {
+            position: absolute; /* Posisi absolut untuk penempatan di luar layout normal */
+            top: 50%; /* Vertikal di tengah */
+            transform: translateY(-50%); /* Mengubah posisi untuk benar-benar tengah */
+            z-index: 1; /* Menempatkan tombol di atas card */
+            background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang untuk tombol */
+            border: none; /* Menghilangkan border default */
+            cursor: pointer; /* Menunjukkan kursor tangan saat hover */
+            padding: 10px; /* Ruang dalam tombol */
+            border-radius: 50%; /* Membuat tombol berbentuk bulat */
+        }
+        .btn-left {
+            left: 10px; /* Posisi di sebelah kiri */
+        }
+        .btn-right {
+            right: 10px; /* Posisi di sebelah kanan */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h5 class="title-hotel">Temukan Tempat Menginap Favorit Baru Anda</h5>
+    <div class="hotel-list" id="hotelList"> <!-- Kontainer untuk card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Hotel 1">
+            <div class="card-body">
+                <h5 class="card-title">Hotel Pertama</h5>
+                <p class="card-text">Contoh teks untuk membangun judul kartu dan konten kartu.</p>
+                <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Hotel 2">
+            <div class="card-body">
+                <h5 class="card-title">Hotel Kedua</h5>
+                <p class="card-text">Contoh teks untuk membangun judul kartu dan konten kartu.</p>
+                <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Hotel 3">
+            <div class="card-body">
+                <h5 class="card-title">Hotel Ketiga</h5>
+                <p class="card-text">Contoh teks untuk membangun judul kartu dan konten kartu.</p>
+                <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Hotel 4">
+            <div class="card-body">
+                <h5 class="card-title">Hotel Keempat</h5>
+                <p class="card-text">Contoh teks untuk membangun judul kartu dan konten kartu.</p>
+                <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+            </div>
+        </div>
+        <!-- Tambahkan lebih banyak card jika perlu -->
+    </div>
+    <button class="btn-nav btn-left" id="btnLeft">&lt;</button> <!-- Tombol kiri -->
+    <button class="btn-nav btn-right" id="btnRight">&gt;</button> <!-- Tombol kanan -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const hotelList = document.getElementById('hotelList');
+    const btnLeft = document.getElementById('btnLeft');
+    const btnRight = document.getElementById('btnRight');
+
+    // Fungsi untuk menggeser ke kiri
+    btnLeft.addEventListener('click', () => {
+        hotelList.scrollBy({
+            left: -200, // Geser 200px ke kiri
+            behavior: 'smooth' // Efek smooth saat menggulir
+        });
+    });
+
+    // Fungsi untuk menggeser ke kanan
+    btnRight.addEventListener('click', () => {
+        hotelList.scrollBy({
+            left: 200, // Geser 200px ke kanan
+            behavior: 'smooth' // Efek smooth saat menggulir
+        });
+    });
+</script>
+</body>
+</html>

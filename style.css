@@ -2,12 +2,96 @@
     display: none; /* Sembunyikan secara default */
 }
 
-@media (max-width: 500px) {
+.title{    
+    font-weight: bolder;
+    font-size: 30px;
+    color: #7851A9;
+    text-decoration: none;
+}
+
+.btn-signup, .btn-pergi{
+    font-size: 15px;
+    padding: 10px 30px;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    background-color: #7851A9;
+}
+
+.btn-dropdown-wrapper{
+    padding: 0 10px;
+    align-items: center;
+}
+
+.nav-link{
+    color: #757575;
+}
+
+.nav-link:hover{
+    color: #7851A9;
+}
+
+.promosi{
+    padding: 10px 20px;
+    background-color: #E6E6FA;
+    color: #010203;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Bayangan sederhana */
+}
+
+.promosi-title{
+    font-size: 25px;
+}
+
+
+/* CSS untuk list hotel */
+.title-hotel {
+    margin-bottom: 20px; /* Jarak antara judul dan daftar hotel */
+}
+.hotel-list {
+    display: flex; /* Menggunakan flexbox untuk menampilkan card secara horizontal */
+    overflow: hidden; /* Menghilangkan scrollbar */
+    padding-bottom: 10px; /* Ruang di bawah card untuk scroll */
+    position: relative; /* Untuk posisi tombol navigasi */
+}
+.card {
+    min-width: 20rem; /* Minimum width untuk card */    
+}
+.btn-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(1100%);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang untuk tombol */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%; /* Membuat tombol bulat */
+}
+.btn-left {    
+    left: 10px; /* Posisi kiri */
+}
+.btn-right {
+    right: 10px; /* Posisi kanan */
+}
+
+@media (max-width: 500px) {    
     #dropdown-nav {
         display: block; /* Tampilkan dropdown hanya untuk layar <= 500px */
     }
 
+    .card {
+        min-width: 100%; /* Minimum width untuk card */        
+    }
+
     #normal-nav, #normal-nav-wrapper{
         display: none;
+    }    
+}
+
+@media (max-width: 580px){
+    .btn-nav{
+        transform: translateY(1400%);
     }
 }
