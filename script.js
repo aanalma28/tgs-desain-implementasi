@@ -106,3 +106,21 @@ btnRight.addEventListener('click', () => {
         behavior: 'smooth' // Efek smooth saat menggulir
     });
 });
+
+
+
+// JS untuk scroll warna
+// Mengambil elemen header
+const header = document.querySelector('.header');
+const title = document.getElementById('title')
+
+// Menambahkan event listener untuk scroll
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) { // Jika halaman digulir
+        header.classList.add('scrolled'); // Tambahkan kelas 'scrolled'
+        title.classList.add('scrolled')
+    } else {
+        header.classList.remove('scrolled'); // Hapus kelas 'scrolled' saat kembali ke atas
+        title.classList.remove('scrolled')
+    }
+});

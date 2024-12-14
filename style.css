@@ -2,11 +2,16 @@
     display: none; /* Sembunyikan secara default */
 }
 
-.title{    
+#title{    
     font-weight: bolder;
     font-size: 30px;
     color: #7851A9;
+    transition: 0.3s ease; /* Transisi halus */
     text-decoration: none;
+}
+
+#title.scrolled{
+    color: white;
 }
 
 .btn-signup, .btn-pergi{
@@ -44,6 +49,17 @@
     font-size: 25px;
 }
 
+.btn-go{
+    margin: 10px;
+    width: 450px;
+    font-size: 15px;
+    padding: 10px 30px;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    background-color: #7851A9;
+}
 
 /* CSS untuk list hotel */
 .title-hotel {
@@ -61,7 +77,7 @@
 .btn-nav {
     position: absolute;
     top: 50%;
-    transform: translateY(1100%);
+    transform: translateY(1300%);
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang untuk tombol */
     border: none;
@@ -74,6 +90,18 @@
 }
 .btn-right {
     right: 10px; /* Posisi kanan */
+}
+
+
+/* Scroll Header */
+.header {
+    background-color: none; /* Warna latar belakang awal */
+    transition: background-color 0.3s ease; /* Transisi halus */
+    z-index: 1000; /* Pastikan header tetap di atas */
+}
+.header.scrolled {
+    background-color: #7851A9; /* Warna saat di-scroll */
+    color: white;
 }
 
 @media (max-width: 500px) {    
@@ -92,6 +120,11 @@
 
 @media (max-width: 580px){
     .btn-nav{
-        transform: translateY(1400%);
+        transform: translateY(1700%);
+    }
+
+    .btn-go{
+        width: 100%;
+        margin: 0;
     }
 }
