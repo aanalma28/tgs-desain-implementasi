@@ -1,0 +1,13 @@
+#dropdown-nav {
+    display: none; /* Sembunyikan secara default */
+}
+
+@media (max-width: 500px) {
+    #dropdown-nav {
+        display: block; /* Tampilkan dropdown hanya untuk layar <= 500px */
+    }
+
+    #normal-nav, #normal-nav-wrapper{
+        display: none;
+    }
+}
