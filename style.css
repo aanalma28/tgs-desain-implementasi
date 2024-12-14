@@ -45,6 +45,22 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Bayangan sederhana */
 }
 
+.rating-wrapper{
+    position: absolute;
+    background: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.text-ulasan{
+    display: flex;
+    font-size: 12px;
+    align-items: center;    
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
 .promosi-title{
     font-size: 25px;
 }
@@ -77,7 +93,19 @@
 .btn-nav {
     position: absolute;
     top: 50%;
-    transform: translateY(1300%);
+    transform: translateY(1500%);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang untuk tombol */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%; /* Membuat tombol bulat */
+}
+
+.btn-nav-2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(3000%);
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang untuk tombol */
     border: none;
@@ -120,8 +148,12 @@
 
 @media (max-width: 580px){
     .btn-nav{
-        transform: translateY(1700%);
-    }
+        transform: translateY(1900%);
+    }    
+
+    .btn-nav-2{
+        transform: translateY(3600%);
+    }    
 
     .btn-go{
         width: 100%;

@@ -107,6 +107,27 @@ btnRight.addEventListener('click', () => {
     });
 });
 
+// JS untuk list wisata
+const wisataList = document.getElementById('wisataList');
+const btnLeft2 = document.getElementById('btnLeft2');
+const btnRight2 = document.getElementById('btnRight2');
+
+// Fungsi untuk menggeser ke kiri
+btnLeft2.addEventListener('click', () => {
+    wisataList.scrollBy({
+        left: -200, // Geser 200px ke kiri
+        behavior: 'smooth' // Efek smooth saat menggulir
+    });
+});
+
+// Fungsi untuk menggeser ke kanan
+btnRight2.addEventListener('click', () => {
+    wisataList.scrollBy({
+        left: 200, // Geser 200px ke kanan
+        behavior: 'smooth' // Efek smooth saat menggulir
+    });
+});
+
 
 
 // JS untuk scroll warna
