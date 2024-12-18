@@ -145,3 +145,37 @@ window.addEventListener('scroll', () => {
         title.classList.remove('scrolled')
     }
 });
+
+
+//login
+// Fungsi untuk navigasi antara halaman Welcome ke halaman Login
+document.addEventListener("DOMContentLoaded", function () {
+    const btnMasuk = document.querySelector(".btn-masuk"); // Tombol "Masuk"
+    const welcomeSection = document.querySelector(".welcome-section");
+    const loginSection = document.querySelector(".login-section");
+    const loginForm = document.querySelector("#loginForm");
+
+    // Event listener untuk tombol "Masuk"
+    btnMasuk.addEventListener("click", function () {
+        welcomeSection.classList.add("d-none"); // Sembunyikan welcome section
+        loginSection.classList.remove("d-none"); // Tampilkan login section
+    });
+
+    // Validasi sederhana untuk form login
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Hindari reload halaman
+
+        const username = document.querySelector("#username").value.trim();
+        const password = document.querySelector("#password").value.trim();
+
+        if (username === "" || password === "") {
+            alert("Nama pengguna dan kata sandi tidak boleh kosong!");
+        } else if (password.length < 6) {
+            alert("Kata sandi harus memiliki minimal 6 karakter.");
+        } else {
+            // Jika validasi berhasil, redirect ke index.html
+            alert("Login berhasil! Mengalihkan ke halaman utama...");
+            window.location.href = "index.html";
+        }
+    });
+});

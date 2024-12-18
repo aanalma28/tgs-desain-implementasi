@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lihat Tiket - Isekai Travel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #0078D7;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #0078D7;
+        }
+
+        .ticket-info {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .ticket-info p {
+            margin: 0.5rem 0;
+        }
+
+        .no-ticket {
+            text-align: center;
+            color: #777;
+            font-style: italic;
+        }
+
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 1rem auto;
+            padding: 0.7rem;
+            text-align: center;
+            background-color: #0078D7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #005a9e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Isekai Travel</h1>
+        <p>Lihat Tiket Anda</p>
+    </header>
+
+    <div class="container">
+        <h2>Detail Tiket yang Dipesan</h2>
+        <div id="ticket-details" class="ticket-info">
+            <!-- Informasi tiket akan ditampilkan di sini -->
+        </div>
+
+        <a href="index.html" class="btn">Kembali ke Halaman Utama</a>
+    </div>
+
+    <script>
+        // Ambil data tiket dari localStorage
+        const namaTiket = localStorage.getItem('namaTiket');
+        const waktuTiket = localStorage.getItem('waktu');
+        const hargaTiket = localStorage.getItem('hargaTiket');
+
+        // Menampilkan data tiket jika ada
+        const ticketDetails = document.getElementById('ticket-details');
+
+        if (namaTiket && waktuTiket && hargaTiket) {
+            ticketDetails.innerHTML = `
+                <p><strong>Nama Tiket:</strong> ${namaTiket}</p>
+                <p><strong>Waktu Perjalanan:</strong> ${waktuTiket}</p>
+                <p><strong>Harga Tiket:</strong> ${hargaTiket}</p>
+            `;
+        } else {
+            // Jika tidak ada data tiket
+            ticketDetails.innerHTML = `
+                <p class="no-ticket">Belum ada tiket yang dipesan.</p>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teleportasi - Isekai Travel</title>
+  <link rel="stylesheet" href="Teleportasi.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Isekai Travel</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Destinations</a>
+      <a href="#">Book Now</a>
+    </nav>
+  </header>
+
+  <main class="teleportasi-page">
+    <h1>Formulir Perjalanan Teleportasi</h1>
+    <form id="teleportasi-form">
+      <div class="form-group">
+        <label for="origin">Asal Teleportasi</label>
+        <input type="text" id="origin" name="origin" placeholder="Masukkan lokasi asal" required>
+      </div>
+      <div class="form-group">
+        <label for="destination">Tujuan Teleportasi</label>
+        <input type="text" id="destination" name="destination" placeholder="Masukkan lokasi tujuan" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Tanggal Perjalanan</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="travelers">Jumlah Traveler</label>
+        <select id="travelers" name="travelers" required>
+          <option value="1">1 Traveler</option>
+          <option value="2">2 Travelers</option>
+          <option value="3">3 Travelers</option>
+          <option value="4">4 Travelers</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">Teleportasi Sekarang</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById("teleportasi-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+  
+      // Ambil data dari form
+      const origin = document.getElementById("origin").value;
+      const destination = document.getElementById("destination").value;
+      const date = document.getElementById("date").value;
+      const travelers = document.getElementById("travelers").value;
+  
+      // Simpan data ke localStorage
+      localStorage.setItem("namaTiket", `Teleportasi dari ${origin} ke ${destination}`);
+      localStorage.setItem("waktu", date);
+      localStorage.setItem("hargaTiket", "Rp 1.000.000"); // Harga bisa disesuaikan atau dihitung
+  
+      // Redirect ke halaman pembayaran
+      window.location.href = "pembayaran.html";
+    });
+  </script>  
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesawat - Isekai Travel</title>
+  <link rel="stylesheet" href="Pegasus.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Isekai Travel</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Destinations</a>
+      <a href="#">Book Now</a>
+    </nav>
+  </header>
+
+  <main class="pesawat-page">
+    <h1>Pilih Penerbangan Anda</h1>
+    <form id="pesawat-form">
+      <div class="form-group">
+        <label for="departure">Bandara Keberangkatan</label>
+        <input type="text" id="departure" name="departure" placeholder="Masukkan bandara asal" required>
+      </div>
+      <div class="form-group">
+        <label for="destination">Bandara Tujuan</label>
+        <input type="text" id="destination" name="destination" placeholder="Masukkan bandara tujuan" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Tanggal Penerbangan</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <button type="submit" class="search-btn">Cari Penerbangan</button>
+    </form>
+
+    <section id="flight-results" class="hidden">
+      <h2>Hasil Pencarian Penerbangan</h2>
+      <div class="flight-list">
+        <!-- Contoh penerbangan -->
+        <div class="flight-item">
+          <p><strong>Maskapai:</strong> Garuda Indonesia</p>
+          <p><strong>Waktu:</strong> 08:00 - 11:00</p>
+          <p><strong>Harga:</strong> Rp 1.500.000</p>
+          <button class="book-btn">Pesan Sekarang</button>
+        </div>
+        <div class="flight-item">
+          <p><strong>Maskapai:</strong> Lion Air</p>
+          <p><strong>Waktu:</strong> 13:00 - 16:00</p>
+          <p><strong>Harga:</strong> Rp 800.000</p>
+          <button class="book-btn">Pesan Sekarang</button>
+        </div>
+        <div class="flight-item">
+          <p><strong>Maskapai:</strong> Citilink</p>
+          <p><strong>Waktu:</strong> 18:00 - 21:00</p>
+          <p><strong>Harga:</strong> Rp 1.200.000</p>
+          <button class="book-btn">Pesan Sekarang</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("pesawat-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+  
+      // Ambil data dari form
+      const departure = document.getElementById("departure").value;
+      const destination = document.getElementById("destination").value;
+      const date = document.getElementById("date").value;
+  
+      // Tampilkan hasil pencarian (simulasi data)
+      const resultsSection = document.getElementById("flight-results");
+      resultsSection.classList.remove("hidden");
+  
+      console.log("Pencarian penerbangan:");
+      console.log("Keberangkatan:", departure);
+      console.log("Tujuan:", destination);
+      console.log("Tanggal:", date);
+    });
+  
+    const bookButtons = document.querySelectorAll(".book-btn");
+    bookButtons.forEach((button) => {
+      button.addEventListener("click", function() {
+        // Simulasi data penerbangan yang dipilih
+        const maskapai = this.parentElement.querySelector("p:nth-child(1)").innerText.split(": ")[1];
+        const waktu = this.parentElement.querySelector("p:nth-child(2)").innerText.split(": ")[1];
+        const harga = this.parentElement.querySelector("p:nth-child(3)").innerText.split(": ")[1];
+  
+        // Simpan data penerbangan yang dipilih ke localStorage
+        localStorage.setItem('maskapai', maskapai);
+        localStorage.setItem('waktu', waktu);
+        localStorage.setItem('harga', harga);
+  
+        // Beri konfirmasi pemesanan
+        alert("Penerbangan berhasil dipesan!");
+        window.location.href = "pembayaran2.html";
+      });
+    });
+  </script>
+  
+</body>
+</html>

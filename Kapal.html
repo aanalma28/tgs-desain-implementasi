@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapal - Isekai Travel</title>
+  <link rel="stylesheet" href="Kapal.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Isekai Travel</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Destinations</a>
+      <a href="#">Book Now</a>
+    </nav>
+  </header>
+
+  <main class="kapal-page">
+    <h1>Pilih Tiket Kapal Anda</h1>
+    <form id="kapal-form">
+      <div class="form-group">
+        <label for="port-departure">Pelabuhan Keberangkatan</label>
+        <input type="text" id="port-departure" name="port-departure" placeholder="Masukkan pelabuhan asal" required>
+      </div>
+      <div class="form-group">
+        <label for="port-destination">Pelabuhan Tujuan</label>
+        <input type="text" id="port-destination" name="port-destination" placeholder="Masukkan pelabuhan tujuan" required>
+      </div>
+      <div class="form-group">
+        <label for="departure-date">Tanggal Keberangkatan</label>
+        <input type="date" id="departure-date" name="departure-date" required>
+      </div>
+      <button type="submit" class="search-btn">Cari Tiket Kapal</button>
+    </form>
+
+    <section id="ship-results" class="hidden">
+      <h2>Hasil Pencarian Tiket Kapal</h2>
+      <div class="ship-list">
+        <div class="ship-item">
+          <p><strong>Operator:</strong> Kapal Laut Nusantara</p>
+          <p><strong>Waktu:</strong> 07:00 - 12:00</p>
+          <p><strong>Harga:</strong> Rp 500.000</p>
+          <button class="book-btn">Pesan Sekarang</button>
+        </div>
+        <div class="ship-item">
+          <p><strong>Operator:</strong> Ferry Indonesia</p>
+          <p><strong>Waktu:</strong> 14:00 - 19:00</p>
+          <p><strong>Harga:</strong> Rp 350.000</p>
+          <button class="book-btn">Pesan Sekarang</button>
+        </div>
+        <div class="ship-item">
+          <p><strong>Operator:</strong> Pelni Express</p>
+          <p><strong>Waktu:</strong> 20:00 - 02:00</p>
+          <p><strong>Harga:</strong> Rp 450.000</p>
+          <button class="book-btn">Pesan Sekarang</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("kapal-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const portDeparture = document.getElementById("port-departure").value;
+      const portDestination = document.getElementById("port-destination").value;
+      const departureDate = document.getElementById("departure-date").value;
+
+      const resultsSection = document.getElementById("ship-results");
+      resultsSection.classList.remove("hidden");
+
+      console.log("Pencarian tiket kapal:");
+      console.log("Keberangkatan:", portDeparture);
+      console.log("Tujuan:", portDestination);
+      console.log("Tanggal:", departureDate);
+    });
+
+    const bookButtons = document.querySelectorAll(".book-btn");
+    bookButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const shipItem = event.target.closest(".ship-item");
+        const operator = shipItem.querySelector("strong").textContent.split(":")[1].trim();
+        const time = shipItem.querySelector("p:nth-child(2)").textContent.split(":")[1].trim();
+        const price = shipItem.querySelector("p:nth-child(3)").textContent.split(":")[1].trim();
+
+        // Simpan data tiket kapal ke localStorage
+        localStorage.setItem("namaTiket", operator);
+        localStorage.setItem("waktu", time);
+        localStorage.setItem("hargaTiket", price);
+
+        // Arahkan ke halaman pembayaran
+        window.location.href = "pembayaran1.html";
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran - Isekai Travel</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #2e4dbd;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            margin: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .highlight {
+            background-color: #e9f5e9;
+            padding: 10px;
+            border: 1px solid #c5e1c5;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            color: #4caf50;
+        }
+
+        .insurance-section {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .insurance-section h4 {
+            margin: 0 0 10px;
+        }
+
+        .insurance-section p {
+            margin: 5px 0;
+            color: gray;
+        }
+
+        .price {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #e64a19;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Isekai Travel</h1>
+    </header>
+    <div class="container">
+        <h2>Informasi Penumpang</h2>
+        <label for="title">Title</label>
+        <select id="title">
+            <option>Tuan</option>
+            <option>Nyonya</option>
+            <option>Nona</option>
+        </select>
+
+        <label for="namaDepan">Nama Depan & Tengah</label>
+        <input type="text" id="namaDepan" placeholder="Masukkan nama depan & tengah">
+
+        <label for="namaBelakang">Nama Belakang</label>
+        <input type="text" id="namaBelakang" placeholder="Masukkan nama belakang">
+
+        <label for="tglLahir">Tanggal Lahir</label>
+        <input type="date" id="tglLahir">
+
+        <label for="kewarganegaraan">Kewarganegaraan</label>
+        <input type="text" id="kewarganegaraan" placeholder="Masukkan kewarganegaraan">
+
+        <div class="highlight">
+            <strong>Perlengkapan Penerbangan</strong>
+            <p>Bagasi: Tidak dapat dibeli untuk saat ini</p>
+        </div>
+
+        <div class="insurance-section">
+            <h4>🛡️ Asuransi Perjalanan</h4>
+            <p>Perlindungan kecelakaan: kompensasi hingga Rp 500.000.000</p>
+            <p class="price">Rp 123.100</p>
+        </div>
+
+        <div class="insurance-section">
+            <h4>⏰ Asuransi Keterlambatan</h4>
+            <p>Perlindungan penundaan penerbangan hingga Rp 600.000</p>
+            <p class="price">Rp 50.700</p>
+        </div>
+
+        <div class="insurance-section">
+            <h4>📦 Perlindungan Bagasi Hilang</h4>
+            <p>Kompensasi kehilangan bagasi hingga Rp 20.000.000</p>
+            <p class="price">Rp 16.900</p>
+        </div>
+
+        <div class="insurance-section">
+            <h4>🔄 Perlindungan Reschedule Maskapai</h4>
+            <p>Perlindungan hingga 50% dari harga tiket</p>
+            <p class="price">Rp 96.464</p>
+        </div>
+
+        <button id="lanjutBayar" class="btn-primary">Lanjut ke Pembayaran</button>
+    </div>
+
+    <div class="highlight">
+        <h3>Detail Tiket</h3>
+        <p><strong>Nama Tiket:</strong> <span id="namaTiket">-</span></p>
+        <p><strong>Waktu:</strong> <span id="waktuTiket">-</span></p>
+        <p><strong>Harga:</strong> <span id="hargaTiket">-</span></p>
+    </div>
+
+    <script>
+        // Ambil data tiket dari localStorage
+        const namaTiket = localStorage.getItem('namaTiket');
+        const hargaTiket = localStorage.getItem('hargaTiket');
+        const waktu = localStorage.getItem('waktu');
+
+        // Tampilkan data tiket di halaman pembayaran
+        document.getElementById('namaTiket').innerText = namaTiket || 'N/A';
+        document.getElementById('hargaTiket').innerText = hargaTiket || 'N/A';
+        document.getElementById('waktuTiket').innerText = waktu || 'N/A';
+
+        // Tambahkan konfirmasi saat klik "Lanjut ke Pembayaran"
+        document.getElementById("lanjutBayar").addEventListener("click", function () {
+            const konfirmasi = confirm("Yakin ingin melanjutkan ke pembayaran?");
+            if (konfirmasi) {
+                alert("Pembayaran diproses. Terima kasih!");
+                window.location.href = "lihat tiket1.html"; // Ganti dengan halaman pembayaran sebenarnya
+            } else {
+                alert("Pembayaran dibatalkan.");
+            }
+        });
+    </script>
+</body>
+</html>

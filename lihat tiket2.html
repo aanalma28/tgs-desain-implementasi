@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lihat Tiket - Isekai Travel</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+    }
+
+    header {
+        background-color: #2e4dbd;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header nav a {
+        margin: 0 15px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    header nav a:hover {
+        text-decoration: underline;
+    }
+
+    .container {
+        margin: 30px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 800px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .ticket-details {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+    .ticket-details p {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .ticket-details strong {
+        color: #2e4dbd;
+    }
+
+    .btn-primary {
+        background-color: #ff5722;
+        color: white;
+        border: none;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .btn-primary:hover {
+        background-color: #e64a19;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #2e4dbd;
+        color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Isekai Travel</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Destinations</a>
+      <a href="#">Book Now</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Detail Tiket Anda</h1>
+
+    <!-- Menampilkan detail tiket -->
+    <div class="ticket-details">
+      <p><strong>Maskapai:</strong> <span id="maskapaiDetail">-</span></p>
+      <p><strong>Waktu:</strong> <span id="waktuDetail">-</span></p>
+      <p><strong>Harga:</strong> <span id="hargaDetail">-</span></p>
+    </div>
+
+    <button id="backToHome" class="btn-primary">Kembali ke Home</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Isekai Travel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Ambil data tiket dari localStorage
+    const maskapai = localStorage.getItem('maskapai');
+    const waktu = localStorage.getItem('waktu');
+    const harga = localStorage.getItem('harga');
+
+    // Tampilkan data tiket di halaman lihat tiket
+    document.getElementById('maskapaiDetail').innerText = maskapai || 'N/A';
+    document.getElementById('waktuDetail').innerText = waktu || 'N/A';
+    document.getElementById('hargaDetail').innerText = harga || 'N/A';
+
+    // Tambahkan event listener untuk tombol kembali ke home
+    document.getElementById('backToHome').addEventListener('click', function() {
+      window.location.href = "index.html"; // Arahkan ke halaman utama
+    });
+  </script>
+
+</body>
+</html>

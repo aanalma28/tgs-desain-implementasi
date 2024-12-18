@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran - Isekai Travel</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+    }
+
+    header {
+        background-color: #2e4dbd;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header nav a {
+        margin: 0 15px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    header nav a:hover {
+        text-decoration: underline;
+    }
+
+    .container {
+        margin: 30px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 800px;
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    .flight-details {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .flight-details p {
+        font-size: 16px;
+        margin: 8px 0;
+    }
+
+    label {
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: block;
+        color: #333;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+        color: #333;
+    }
+
+    input:focus {
+        border-color: #2e4dbd;
+        outline: none;
+    }
+
+    .highlight {
+        background-color: #e9f5e9;
+        padding: 10px;
+        border: 1px solid #c5e1c5;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        color: #4caf50;
+    }
+
+    .insurance-section {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .insurance-section h4 {
+        margin: 0 0 10px;
+        color: #333;
+    }
+
+    .insurance-section p {
+        margin: 5px 0;
+        color: gray;
+    }
+
+    .price {
+        color: #d32f2f;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #ff5722;
+        color: white;
+        border: none;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .btn-primary:hover {
+        background-color: #e64a19;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #2e4dbd;
+        color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Isekai Travel</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Destinations</a>
+      <a href="#">Book Now</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Informasi Pemesanan Penerbangan</h1>
+    
+    <!-- Menampilkan informasi penerbangan yang dipesan -->
+    <div class="flight-details">
+      <p><strong>Maskapai:</strong> <span id="maskapai">-</span></p>
+      <p><strong>Waktu:</strong> <span id="waktu">-</span></p>
+      <p><strong>Harga:</strong> <span id="harga">-</span></p>
+    </div>
+
+    <!-- Formulir untuk detail penumpang -->
+    <h2>Detail Penumpang</h2>
+    <label for="namaDepan">Nama Depan & Tengah</label>
+    <input type="text" id="namaDepan" placeholder="Masukkan nama depan & tengah" required>
+
+    <label for="namaBelakang">Nama Belakang</label>
+    <input type="text" id="namaBelakang" placeholder="Masukkan nama belakang" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Masukkan email" required>
+
+    <label for="nomorKartu">Nomor Kartu Kredit</label>
+    <input type="text" id="nomorKartu" placeholder="Masukkan nomor kartu kredit" required>
+
+    <button id="prosesPembayaran" class="btn-primary">Proses Pembayaran</button>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Isekai Travel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Ambil data penerbangan yang dipesan dari localStorage
+    const maskapai = localStorage.getItem('maskapai');
+    const waktu = localStorage.getItem('waktu');
+    const harga = localStorage.getItem('harga');
+
+    // Tampilkan data penerbangan di halaman pembayaran
+    document.getElementById('maskapai').innerText = maskapai || 'N/A';
+    document.getElementById('waktu').innerText = waktu || 'N/A';
+    document.getElementById('harga').innerText = harga || 'N/A';
+
+    // Tambahkan event listener untuk tombol pembayaran
+    document.getElementById('prosesPembayaran').addEventListener('click', function() {
+      const konfirmasi = confirm('Apakah Anda yakin ingin melanjutkan ke pembayaran?');
+      if (konfirmasi) {
+        alert('Pembayaran diproses. Terima kasih!');
+        window.location.href = "lihat tiket2.html"; 
+      } else {
+        alert('Pembayaran dibatalkan.');
+      }
+    });
+  </script>
+
+</body>
+</html>
